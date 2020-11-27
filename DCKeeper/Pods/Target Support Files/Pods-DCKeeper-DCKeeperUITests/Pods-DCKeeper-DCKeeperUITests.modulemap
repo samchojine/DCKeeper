@@ -1,0 +1,6 @@
+framework module Pods_DCKeeper_DCKeeperUITests {
+  umbrella header "Pods-DCKeeper-DCKeeperUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

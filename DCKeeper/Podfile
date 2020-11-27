@@ -1,0 +1,33 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'DCKeeper' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for DCKeeper
+ #swift
+  pod 'SnapKit', '5.0.1'
+  pod 'IQKeyboardManagerSwift', '6.5.4'
+  pod 'Moya', '14.0.0-beta.5'
+  pod 'Result', '5.0.0'
+  pod 'HandyJSON', '5.0.2'
+  pod 'TagListView', '~> 1.0'
+  pod 'JXPhotoBrowser'
+  pod 'Kingfisher'
+
+ #OC
+	pod 'WMPageController', '2.5.2'
+	pod 'MBProgressHUD', '1.1.0'
+	pod 'MJRefresh', '3.2.2'
+
+  target 'DCKeeperTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'DCKeeperUITests' do
+    # Pods for testing
+  end
+
+end

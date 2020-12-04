@@ -14,6 +14,9 @@
 		F3347CE02570B50A008346AA /* MeSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3347CDF2570B50A008346AA /* MeSettingController.swift */; };
 		F3347CE52570C913008346AA /* MeSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3347CE42570C913008346AA /* MeSettingCell.swift */; };
 		F3347CEA2570DD89008346AA /* MeEditNameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3347CE92570DD89008346AA /* MeEditNameController.swift */; };
+		F3347D0E2575F38A008346AA /* MeChangeStoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3347D0D2575F389008346AA /* MeChangeStoreController.swift */; };
+		F3347D132575F908008346AA /* MeChangeStoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3347D122575F908008346AA /* MeChangeStoreCell.swift */; };
+		F3347D3A25776A46008346AA /* UserDefaults+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3347D3925776A46008346AA /* UserDefaults+Ex.swift */; };
 		F354D63E256CA8E900F083ED /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354D63D256CA8E900F083ED /* RegisterController.swift */; };
 		F354D643256CAA8A00F083ED /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354D642256CAA8A00F083ED /* LoginView.swift */; };
 		F354D649256CD53600F083ED /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354D648256CD53600F083ED /* LoginAPI.swift */; };
@@ -23,6 +26,11 @@
 		F354D663256DF3DF00F083ED /* ForgetPswView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354D662256DF3DE00F083ED /* ForgetPswView.swift */; };
 		F354D66B256E0FB700F083ED /* MeCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354D66A256E0FB700F083ED /* MeCollectionHeaderView.swift */; };
 		F354D673256E6B5000F083ED /* MeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354D672256E6B5000F083ED /* MeCollectionViewCell.swift */; };
+		F36BDE3C2577A13E007B4D30 /* MeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36BDE3B2577A13E007B4D30 /* MeAPI.swift */; };
+		F37D138F25790F1B0044BA5E /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37D138E25790F1B0044BA5E /* UserInfoModel.swift */; };
+		F37D13972579D2900044BA5E /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37D13962579D2900044BA5E /* BaseModel.swift */; };
+		F37D139C2579E9610044BA5E /* UserperformanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37D139B2579E9610044BA5E /* UserperformanceModel.swift */; };
+		F37D13A1257A35300044BA5E /* MeStoreListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37D13A0257A35300044BA5E /* MeStoreListModel.swift */; };
 		F37FA30C256BA3E00047552B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37FA30B256BA3E00047552B /* AppDelegate.swift */; };
 		F37FA313256BA3E00047552B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F37FA311256BA3E00047552B /* Main.storyboard */; };
 		F37FA315256BA3E10047552B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F37FA314256BA3E10047552B /* Assets.xcassets */; };
@@ -155,6 +163,9 @@
 		F3347CDF2570B50A008346AA /* MeSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSettingController.swift; sourceTree = "<group>"; };
 		F3347CE42570C913008346AA /* MeSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSettingCell.swift; sourceTree = "<group>"; };
 		F3347CE92570DD89008346AA /* MeEditNameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeEditNameController.swift; sourceTree = "<group>"; };
+		F3347D0D2575F389008346AA /* MeChangeStoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeChangeStoreController.swift; sourceTree = "<group>"; };
+		F3347D122575F908008346AA /* MeChangeStoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeChangeStoreCell.swift; sourceTree = "<group>"; };
+		F3347D3925776A46008346AA /* UserDefaults+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Ex.swift"; sourceTree = "<group>"; };
 		F354D63D256CA8E900F083ED /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		F354D642256CAA8A00F083ED /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F354D648256CD53600F083ED /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
@@ -164,6 +175,11 @@
 		F354D662256DF3DE00F083ED /* ForgetPswView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPswView.swift; sourceTree = "<group>"; };
 		F354D66A256E0FB700F083ED /* MeCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeCollectionHeaderView.swift; sourceTree = "<group>"; };
 		F354D672256E6B5000F083ED /* MeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeCollectionViewCell.swift; sourceTree = "<group>"; };
+		F36BDE3B2577A13E007B4D30 /* MeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeAPI.swift; sourceTree = "<group>"; };
+		F37D138E25790F1B0044BA5E /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
+		F37D13962579D2900044BA5E /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		F37D139B2579E9610044BA5E /* UserperformanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserperformanceModel.swift; sourceTree = "<group>"; };
+		F37D13A0257A35300044BA5E /* MeStoreListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeStoreListModel.swift; sourceTree = "<group>"; };
 		F37FA308256BA3E00047552B /* DCKeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DCKeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F37FA30B256BA3E00047552B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F37FA312256BA3E00047552B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -375,6 +391,24 @@
 				F354D648256CD53600F083ED /* LoginAPI.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		F36BDE3A2577A113007B4D30 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				F36BDE3B2577A13E007B4D30 /* MeAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		F37D138D25790EF40044BA5E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F37D138E25790F1B0044BA5E /* UserInfoModel.swift */,
+				F37D139B2579E9610044BA5E /* UserperformanceModel.swift */,
+				F37D13A0257A35300044BA5E /* MeStoreListModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		F37FA2FF256BA3E00047552B = {
@@ -591,6 +625,7 @@
 				F37FA3CA256BA8F10047552B /* String+Extension.swift */,
 				F37FA3CB256BA8F10047552B /* Color+Extension.swift */,
 				F37FA3CC256BA8F10047552B /* DispatchTime+Extension.swift */,
+				F3347D3925776A46008346AA /* UserDefaults+Ex.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -801,6 +836,7 @@
 				F37FA48E256BA9040047552B /* PJNavigationController.swift */,
 				F37FA48D256BA9040047552B /* PJBaseTableViewController.swift */,
 				F37FA48F256BA9040047552B /* PJBaseStackViewController.swift */,
+				F37D13962579D2900044BA5E /* BaseModel.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -835,6 +871,8 @@
 		F37FA4D8256BAEB80047552B /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				F37D138D25790EF40044BA5E /* Model */,
+				F36BDE3A2577A113007B4D30 /* API */,
 				F37FA4E0256BAF410047552B /* View */,
 				F37FA4DF256BAF390047552B /* Controller */,
 			);
@@ -892,6 +930,7 @@
 				F37FA503256BB1820047552B /* MeMainController.swift */,
 				F3347CDF2570B50A008346AA /* MeSettingController.swift */,
 				F3347CE92570DD89008346AA /* MeEditNameController.swift */,
+				F3347D0D2575F389008346AA /* MeChangeStoreController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -902,6 +941,7 @@
 				F354D66A256E0FB700F083ED /* MeCollectionHeaderView.swift */,
 				F354D672256E6B5000F083ED /* MeCollectionViewCell.swift */,
 				F3347CE42570C913008346AA /* MeSettingCell.swift */,
+				F3347D122575F908008346AA /* MeChangeStoreCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1155,6 +1195,7 @@
 				F37FA483256BA8FF0047552B /* Action.swift in Sources */,
 				F37FA3D2256BA8F10047552B /* UICollectionView+Extension.swift in Sources */,
 				F37FA46D256BA8FF0047552B /* Inch.swift in Sources */,
+				F3347D0E2575F38A008346AA /* MeChangeStoreController.swift in Sources */,
 				F37FA3CD256BA8F10047552B /* UIButton+Extension.swift in Sources */,
 				F37FA3D5256BA8F10047552B /* Date+Extension.swift in Sources */,
 				F37FA4ED256BAFA60047552B /* HomeMainController.swift in Sources */,
@@ -1182,6 +1223,7 @@
 				F37FA485256BA8FF0047552B /* CollectionTagFlowLayout.swift in Sources */,
 				F37FA3B4256BA8DE0047552B /* PJ_WKWebViewExtension.swift in Sources */,
 				F37FA481256BA8FF0047552B /* AttributedString.swift in Sources */,
+				F37D139C2579E9610044BA5E /* UserperformanceModel.swift in Sources */,
 				F37FA3D8256BA8F10047552B /* DispatchTime+Extension.swift in Sources */,
 				F354D673256E6B5000F083ED /* MeCollectionViewCell.swift in Sources */,
 				F37FA4CE256BAE1E0047552B /* DCKeeper-pch.swift in Sources */,
@@ -1196,6 +1238,7 @@
 				F37FA3B0256BA8DE0047552B /* PJ_TextFieldExtension.swift in Sources */,
 				F37FA490256BA9040047552B /* PJCustomNaviBar.swift in Sources */,
 				F37FA467256BA8FF0047552B /* BRBaseView.m in Sources */,
+				F3347D132575F908008346AA /* MeChangeStoreCell.swift in Sources */,
 				F37FA399256BA8DE0047552B /* PJRefreshNormalHeader.swift in Sources */,
 				F37FA3D7256BA8F10047552B /* Color+Extension.swift in Sources */,
 				F37FA47A256BA8FF0047552B /* Extension.swift in Sources */,
@@ -1205,6 +1248,7 @@
 				F37FA3BA256BA8DE0047552B /* PJColorConstant.swift in Sources */,
 				F37FA472256BA8FF0047552B /* ShadowExtension.swift in Sources */,
 				F37FA39A256BA8DE0047552B /* PJRefreshAutoNormalFooter.swift in Sources */,
+				F37D13972579D2900044BA5E /* BaseModel.swift in Sources */,
 				F326CAFC256BCBB30034B72D /* LoginController.swift in Sources */,
 				F354D643256CAA8A00F083ED /* LoginView.swift in Sources */,
 				F37FA478256BA8FF0047552B /* UITextFieldExtension.swift in Sources */,
@@ -1223,6 +1267,7 @@
 				F37FA3B5256BA8DE0047552B /* PJ_TextViewExtension.swift in Sources */,
 				F37FA3A3256BA8DE0047552B /* UICollectionView+empty.swift in Sources */,
 				F37FA4FF256BB16A0047552B /* RetailMainController.swift in Sources */,
+				F36BDE3C2577A13E007B4D30 /* MeAPI.swift in Sources */,
 				F37FA30C256BA3E00047552B /* AppDelegate.swift in Sources */,
 				F354D63E256CA8E900F083ED /* RegisterController.swift in Sources */,
 				F37FA398256BA8DE0047552B /* ScrollView+MJRefresh.swift in Sources */,
@@ -1237,6 +1282,7 @@
 				F37FA3B7256BA8DE0047552B /* PJServerConstant.swift in Sources */,
 				F37FA471256BA8FF0047552B /* Attachment.swift in Sources */,
 				F37FA46C256BA8FF0047552B /* Auto.swift in Sources */,
+				F37D138F25790F1B0044BA5E /* UserInfoModel.swift in Sources */,
 				F37FA3B1256BA8DE0047552B /* PJ_ImageViewExtension.swift in Sources */,
 				F37FA47B256BA8FF0047552B /* NSTextFieldExtension.swift in Sources */,
 				F37FA462256BA8FF0047552B /* BRStringPickerView.m in Sources */,
@@ -1248,9 +1294,11 @@
 				F354D649256CD53600F083ED /* LoginAPI.swift in Sources */,
 				F37FA3AD256BA8DE0047552B /* UserManager.swift in Sources */,
 				F37FA476256BA8FF0047552B /* UIButtonExtension.swift in Sources */,
+				F37D13A1257A35300044BA5E /* MeStoreListModel.swift in Sources */,
 				F37FA47C256BA8FF0047552B /* WKInterfaceTextFieldExtension.swift in Sources */,
 				F37FA504256BB1820047552B /* MeMainController.swift in Sources */,
 				F37FA463256BA8FF0047552B /* NSDate+BRPickerView.m in Sources */,
+				F3347D3A25776A46008346AA /* UserDefaults+Ex.swift in Sources */,
 				F37FA466256BA8FF0047552B /* BRPickerStyle.m in Sources */,
 				F37FA46E256BA8FF0047552B /* SectionData.swift in Sources */,
 			);

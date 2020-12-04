@@ -16,7 +16,7 @@ class RegisterController: PJBaseTableViewController {
        
         self.naviTitle = "注册"
         
-        registerV = RegisterView(frame: self.view.bounds);
+        registerV = RegisterView(frame: CGRect(0, 0, kScreenWidth, kScreenHeight - kTopHeight));
         
         // 正在tableView里面可以让界面滚动
         self.tableView.tableHeaderView = registerV;
@@ -26,6 +26,7 @@ class RegisterController: PJBaseTableViewController {
         // 点击登录
         registerV.registerBlock = { (phone, psw) in
             
+     
             var param : [String:Any] = [:]
             param["principal"] = phone
             param["credentials"] = psw.MD5()
@@ -41,7 +42,7 @@ class RegisterController: PJBaseTableViewController {
            }
         }
         
-        
+
     }
     
 

@@ -23,7 +23,8 @@ class SSYLoginDetectMoyaPlugin: PluginType {
         case .success(let result):
             let data = result.data
             let dic = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? Dictionary<String, Any> ?? [:]
-            if let code = dic?["code"] as? Int{
+            if let code = Int(dic?["code"] as? String ?? "0") {
+                
                 switch code {
                 case RespNoLoginCheckCode:
                     setNeedLogin()
@@ -35,10 +36,10 @@ class SSYLoginDetectMoyaPlugin: PluginType {
     }
     
     func setNeedLogin(){
-//        AMBUser.share.clearLoginStatus()
-//        if let current = UIViewController.klc_currentViewController() {
-//            AMBLoginVC.presentLoginFrom(current)
-//        }
+        UserManager.shared.deleteUserInfo()
+        let loginVC = LoginController()
+        loginVC.modalPresentationStyle = .fullScreen
+        UIApplication.shared.keyWindow?.rootViewController?.present(loginVC, animated: true, completion: nil)
     }
 }
 

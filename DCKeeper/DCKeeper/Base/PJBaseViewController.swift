@@ -37,6 +37,7 @@ class PJBaseViewController: UIViewController {
         
         // 添加自定义导航栏
         naviBar = PJCustomNaviBar()
+        naviBar.naviAlpha = 0.9
         self.view.addSubview(naviBar)
         
         // 设置标题
@@ -44,8 +45,7 @@ class PJBaseViewController: UIViewController {
             naviBar.leftItemImage = UIImage(named:"nav_btn_back_black")
         }
         
-       
-       
+    
     }
     
      override func viewWillAppear(_ animated: Bool) {

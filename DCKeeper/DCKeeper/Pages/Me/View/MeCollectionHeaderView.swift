@@ -10,10 +10,56 @@ import UIKit
 class MeCollectionHeaderView: UICollectionReusableView {
     
     
+    func configPerformance(_ model:UserperformanceModel?) {
+        
+        guard let model = model else {
+            return;
+        }
+        
+        todaySaleValueLabel.text = String(format:"%.2f",model.tsales)
+        monthSaleValueLabel.text = String(format:"%.2f",model.msales)
+        
+    }
+    
+    var userModel:UserInfoModel?
+    
+    func configUIModel(_ model:UserInfoModel?) {
+        
+        guard let model = model else {
+            return;
+        }
+        userModel = model
+        
+        if let roleId = Int(model.post) {
+            let arr = ["","ic_head_icon1","ic_head_icon2","ic_head_icon3","ic_head_icon4","ic_head_icon5","ic_head_icon6"]
+            if roleId > 6 {
+                avatarImagV.image = UIImage.init(named: "me_head_boss")
+            }else if roleId > 0 && roleId < arr.count {
+                avatarImagV.image = UIImage(named: arr[roleId])
+            }
+        }
+        
+        nameLabel.text = model.nickName.isEmpty ? model.userName :model.nickName
+ 
+        if model.storeName == nil {
+            storenameLabel.isHidden = true
+            storelogoImagV.isHidden = true
+            
+        }else{
+            storenameLabel.isHidden = false
+            storelogoImagV.isHidden = false
+            storenameLabel.text = model.storeName
+        }
+        
+    }
+    
+    
     lazy var userBGV: UIView = {
         let v = UIView()
         v.addTapAction { [weak self](v) in
-            self?.viewController()?.navigationController?.pushViewController(MeSettingController(), animated: true)
+            let setVC = MeSettingController()
+            setVC.userInfo = self?.userModel
+            self?.viewController()?.navigationController?.pushViewController(setVC, animated: true)
         }
         return v
     }()
@@ -25,12 +71,12 @@ class MeCollectionHeaderView: UICollectionReusableView {
     }()
     
     lazy var nameLabel: UILabel = {
-        let lab = UILabel.pj_normalLabel(text: "水电费啦", font: 17, fontWeight: .medium, textColor: k33COLOR, textAlignment: .left)
+        let lab = UILabel.pj_normalLabel(font: 17, fontWeight: .medium, textColor: k33COLOR, textAlignment: .left)
         return lab
     }()
     
     lazy var storenameLabel: UILabel = {
-        let lab = UILabel.pj_normalLabel(text: "水电费啦", font: 13, fontWeight: .medium, textColor: k66COLOR, textAlignment: .left)
+        let lab = UILabel.pj_normalLabel( font: 13, fontWeight: .medium, textColor: k66COLOR, textAlignment: .left)
         return lab
     }()
     
@@ -90,12 +136,12 @@ class MeCollectionHeaderView: UICollectionReusableView {
     }()
 
     lazy var todaySaleValueLabel: UILabel = {
-        let lab = UILabel.pj_normalLabel(text: "824.00", font: 20, fontWeight: .medium, textColor: kRedColor, textAlignment: .center)
+        let lab = UILabel.pj_normalLabel(text: "", font: 20, fontWeight: .medium, textColor: kRedColor, textAlignment: .center)
         return lab
     }()
     
     lazy var monthSaleValueLabel: UILabel = {
-        let lab = UILabel.pj_normalLabel(text: "1540.0", font: 20, fontWeight: .medium, textColor: kRedColor, textAlignment: .center)
+        let lab = UILabel.pj_normalLabel(text: "", font: 20, fontWeight: .medium, textColor: kRedColor, textAlignment: .center)
         return lab
     }()
     

@@ -31,9 +31,9 @@ typealias RespSucDataJSON = ([String:Any])->Void
 let RespFieldSuc = "success";
 let RespFieldData = "data";
 let RespFieldCode = "code";
-let RespFieldMsg = "msg";
-let RespSucCheckCodes : Set<Int> = [200]
-let RespNoLoginCheckCode : Int = 401
+let RespFieldMsg = "message";
+let RespSucCheckCodes : Set = [200,0]
+let RespNoLoginCheckCode  = 411
 
 // ------------------------- Note in 2019 10 31 -------------------------------
 // 考虑到Result的设计,本来就很棒👍,特别是map以及flatMap等的变换。
@@ -49,7 +49,8 @@ let RespNoLoginCheckCode : Int = 401
 extension Result where Value : Response , Error == MoyaError{
     
     private func checkIsSucStatus(_ rawJsonObjc : [String:Any]) -> Bool{
-        if let code = rawJsonObjc[RespFieldCode] as? Int , RespSucCheckCodes.contains(code) {
+        
+        if let code = rawJsonObjc[RespFieldCode]as? Int, RespSucCheckCodes.contains(code) {
             return true
         }
         return false

@@ -9,6 +9,14 @@
 import UIKit
 
 class PJBaseTableViewController: PJBaseViewController {
+   
+    // 重写父类属性，隐藏
+   override var naviHide:Bool  {
+        didSet {
+            self.naviBar.isHidden = true
+            self.contenTopSpace = 0.0
+        }
+    }
      
     // MARK:-顶部距离
     var contenTopSpace :CGFloat = 0.0 {
@@ -28,14 +36,8 @@ class PJBaseTableViewController: PJBaseViewController {
     // MARK:-style  这个属性在子控制器 loadview 中设置
     var style :UITableView.Style = .grouped
     
-    // MARK:-调用此方法可以使tableView从屏幕0开始算起，现在默认从导航栏算起
-    func resetTableViewZero() {
-        self.tableView.snp.remakeConstraints { (make) in
-            make.left.right.bottom.equalTo(self.view)
-            make.top.equalTo(0)
-        }
-    }
-
+    
+    
     // MARK:-如果隐藏了导航栏，tableView会向下偏移22，调用此方法修复
 //    func fixTableViewOffsetWhenNaviHide() {
 //
@@ -64,16 +66,18 @@ class PJBaseTableViewController: PJBaseViewController {
         self.view.backgroundColor = .groupTableViewBackground
         self.view.addSubview(self.tableView)
         self.tableView.snp.makeConstraints { (make) in
-            make.left.right.bottom.equalTo(self.view)
-            make.top.equalTo(kTopHeight)
+            make.edges.equalTo(self.view)
         }
         
-       // 如果隐藏了系统导航栏，tableView会向下偏移22，调用此方法修复，现在是默认全局隐藏系统导航栏，使用自定义导航栏
-        if #available(iOS 11.0, *) {
-               tableView.contentInsetAdjustmentBehavior = .never
-           } else {
-               self.automaticallyAdjustsScrollViewInsets = false
-           }
+        // 设置距离顶部的间距是一个导航栏的距离
+        self.tableView.contentInset = UIEdgeInsets(top: kTopHeight, left: 0, bottom:0, right: 0)
+        
+        // 如果隐藏了系统导航栏，tableView会向下偏移22，调用此方法修复，现在是默认全局隐藏系统导航栏，使用自定义导航栏
+         if #available(iOS 11.0, *) {
+             tableView.contentInsetAdjustmentBehavior = .never
+         } else {
+             self.automaticallyAdjustsScrollViewInsets = false
+         }
     }
 
 }

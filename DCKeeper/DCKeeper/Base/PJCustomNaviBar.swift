@@ -65,6 +65,14 @@ class PJCustomNaviBar: UIView {
         }
     }
     
+    // MARK:导航栏是否透明 默认不透明
+    var naviAlpha:CGFloat = 1.0 {
+        didSet {
+            self.naviBGView.alpha = naviAlpha
+
+        }
+    }
+    
     // MARK:- 是否显示底部线 默认 true
     var showBottomLine:Bool = false {
         didSet {
@@ -86,7 +94,7 @@ class PJCustomNaviBar: UIView {
                 self.rightStackV.addArrangedSubview(btn)
             }
             self.rightStackV.snp.updateConstraints { (make) in
-                make.width.equalTo(itemWidth*CGFloat(rightItems.count + 1))
+                make.width.equalTo(itemWidth*CGFloat(rightItems.count))
             }
         }
     }
@@ -162,8 +170,11 @@ class PJCustomNaviBar: UIView {
     /// - Parameters:
     ///   - title: 标题
     ///   - callBack: 点击回调
-    func addRightItemWithTitle(title:String?,callBack:BtnClickBlock?) {
-        self.addRightItem(title: title, callBack: callBack)
+    func addRightItemWithTitle(title:String?,
+                               titleColor:UIColor = .darkText,
+                               font:UIFont = UIFont.systemFont(ofSize: 14, weight: .regular),
+                               callBack:BtnClickBlock?) {
+        self.addRightItem(title: title,font: font,titleColor: titleColor, callBack: callBack)
     }
     
     /// - Parameters:
@@ -200,7 +211,6 @@ class PJCustomNaviBar: UIView {
             btn.setImage(UIImage(named: selecctImage), for: .selected)
         }
         btn.setTitleColor(titleColor, for: .normal)
-        btn.backgroundColor = .yellow
         btn.titleLabel?.font = font
         btn.isFollowNaviAlpha = followAlpha
         btn.isShowEndChangeImage = showEndChangeImage
@@ -299,6 +309,7 @@ class PJCustomNaviBar: UIView {
         //leftItem.setContentHuggingPriority(.required, for: .horizontal)
         
         titleLabel = UILabel()
+        titleLabel.textAlignment = .center
 //        titleLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
 //        titleLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
 //
@@ -329,13 +340,13 @@ class PJCustomNaviBar: UIView {
         leftItem.snp.makeConstraints { (make) in
             make.left.equalTo(0)
             make.top.bottom.equalTo(naviContentView)
-            make.width.greaterThanOrEqualTo(itemWidth)
+            make.width.equalTo(itemWidth)
         }
         
         rightStackV.snp.makeConstraints { (make) in
             make.right.equalTo(-8)
             make.top.bottom.equalTo(naviContentView)
-            make.width.equalTo(0)
+            make.width.equalTo(itemWidth)
         }
         
         titleLabel.snp.makeConstraints { (make) in

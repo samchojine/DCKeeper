@@ -22,8 +22,8 @@ extension TargetType{
     }
     
     var headers: [String: String]? {
-        return ["Content-Type":"application/x-www-form-urlencoded"]
-      //  return ["Authorization":ZYUser.share.token,"DeviceType":"1"]
+        //return ["Content-Type":"application/x-www-form-urlencoded"]
+        return ["token":UserManager.shared.token]
     }
     
 }

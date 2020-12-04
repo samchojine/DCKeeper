@@ -8,6 +8,9 @@
 import UIKit
 
 class MeMainController: PJBaseViewController {
+    
+    var userInfo:UserInfoModel?
+    var performanceModel:UserperformanceModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +21,21 @@ class MeMainController: PJBaseViewController {
             make.left.right.bottom.equalTo(self.view)
             make.top.equalTo(kTopHeight)
         }
+        
+        self.collectionV.mj_header = PJRefreshNormalHeader(refreshingBlock: {[weak self] in
+            self?.requestPerformance()
+        })
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // 获取个人信息
+        requstUserInfo()
+        
+        // 获取业绩
+        requestPerformance()
     }
     
     lazy var collectionV: UICollectionView = {
@@ -40,9 +58,48 @@ class MeMainController: PJBaseViewController {
         return cv
     }()
     
-
-
+    func requstUserInfo(){
+        
+        var param : [String:Any] = [:]
+        param["id"] = UserManager.shared.user?.userId
+        
+        MeProvider.request(.getUserInfo(parameters: param)) { (result) in
+            result.getRaw { (dict) in
+                
+                self.userInfo = UserInfoModel.deserialize(from: dict)
+                self.collectionV.reloadData()
+                
+            } failed: { (error) in
+                self.showError(text: error.localizedDescription)
+            }
+        }
+    }
+    
+    
+    func requestPerformance() {
+        
+        var param:[String:Any] = [:]
+        param["shopCode"] = UserManager.shared.user?.storeCode
+        MeProvider.request(.getPerformance(parameters: param)) { (result) in
+            result.getRaw { (dict) in
+                if let info = dict["result"]as?[String:Any]{
+                    self.performanceModel = UserperformanceModel.deserialize(from: info)
+                }
+                self.collectionV.mj_header?.endRefreshing()
+                self.collectionV.reloadData()
+                
+            } failed: { (error) in
+                self.showError(text: error.localizedDescription)
+                self.collectionV.mj_header?.endRefreshing()
+            }
+        }
+        
+        
+    }
 }
+
+
+
 
 extension MeMainController :UICollectionViewDataSource,UICollectionViewDelegate {
     
@@ -57,12 +114,15 @@ extension MeMainController :UICollectionViewDataSource,UICollectionViewDelegate 
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerV =  collectionView.header(anyClass: MeCollectionHeaderView.self, for: indexPath)
+        headerV.configUIModel(self.userInfo)
+        headerV.configPerformance(self.performanceModel)
         return headerV
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        self.navigationController?.pushViewController(MeSettingController(), animated: true)
+        let setVC = MeSettingController()
+        setVC.userInfo = self.userInfo
+        self.navigationController?.pushViewController(setVC, animated: true)
         
     }
     

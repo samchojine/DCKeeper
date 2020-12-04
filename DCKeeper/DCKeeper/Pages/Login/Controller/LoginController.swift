@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class LoginController: PJBaseTableViewController {
     
     var loginV:LoginView!
@@ -16,6 +17,7 @@ class LoginController: PJBaseTableViewController {
         super.viewDidLoad()
         
         self.naviHide = true;
+   
         loginV = LoginView(frame: self.view.bounds);
         
         // 正在tableView里面可以让界面滚动
@@ -31,11 +33,20 @@ class LoginController: PJBaseTableViewController {
             param["credentials"] = psw.MD5()
             param["tunnel"] = "1";
             LoginProvider.request(.login(parameters: param)) { (result) in
-                self.showSuccess(text: "登录成功") {
-                    self.dismiss(animated: true) {
-                        
+                
+                result.getDataDictionary { (dict) in
+                    let user = UserModel.deserialize(from: dict)
+                    UserManager.shared.user = user
+                    
+                    self.showSuccess(text: "登录成功") {
+                        self.dismiss(animated: true) {
+                            
+                        }
                     }
+                } failed: { (error) in
+                    self.showError(text: error.localizedDescription)
                 }
+
            }
         }
  

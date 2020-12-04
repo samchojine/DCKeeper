@@ -27,3 +27,8 @@ let PJCellArrowImage = UIImage(named: "")
 
 ///默认 底部确认按钮背景图
 let PJBtnBGImage = UIImage(named: "")
+
+// MARK: ***********   常用函数  **********
+
+/// 获取window上的view
+let kKeyWindow = UIApplication.shared.keyWindow

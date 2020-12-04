@@ -55,8 +55,6 @@ class ZYBaseStackViewController: PJBaseViewController {
             make.width.equalTo(UIScreen.main.bounds.width)
         }
         
-
-        
     }
     
 }

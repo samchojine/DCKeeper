@@ -13,11 +13,14 @@ class HomeMainController: PJBaseViewController {
         super.viewDidLoad()
         self.naviTitle = "总部";
         
-//        let navi = PJNavigationController(rootViewController: LoginController())
-//        navi.modalPresentationStyle = .fullScreen
-//        self.present(navi, animated: false) {
-//            
-//        }
+        
+        if UserManager.shared.isLogin == false {
+            let navi = PJNavigationController(rootViewController: LoginController())
+            navi.modalPresentationStyle = .fullScreen
+            self.present(navi, animated: false) {
+            }
+        }
+
     }
     
 

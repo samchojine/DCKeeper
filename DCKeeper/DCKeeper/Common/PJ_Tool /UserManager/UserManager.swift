@@ -13,32 +13,46 @@ class UserManager: NSObject {
     static let userSaveKey = "userSaveKey"
     static let shared = UserManager()
     
-    
+    // 存取 User 信息
     var user: UserModel?  {
         
         get{
-          
-          let model =  UserDefaults.standard.value(forKey: UserManager.userSaveKey)
-            return model as? UserModel
+            
+            guard let model = UserDefaults.standard.getItem(UserModel.self, forKey: UserManager.userSaveKey) else {
+                return nil
+            }
+            return model
         }
         set {
-            
-            let data = NSKeyedArchiver.archivedData(withRootObject: newValue as Any)
-            UserDefaults.standard.set(data, forKey: UserManager.userSaveKey)
+            UserDefaults.standard.setItem(newValue, forKey: UserManager.userSaveKey)
         }
     }
     
     // 存取token
     var token:String {
-        
+
         get{
-            return self.user?.token ?? ""
+            return self.user?.access_token ?? ""
         }
         set {
-           let model =  self.user
-            model?.token = newValue
+            let model =  self.user
+            model?.access_token = newValue
             self.user  = model
         }
+    }
+    
+    var isLogin:Bool {
+        
+        get{
+            return !self.token.isEmpty 
+        }
+    }
+    
+    func deleteUserInfo() {
+        
+        let user = UserModel()
+        self.user = user
+        
     }
     
     

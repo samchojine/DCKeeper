@@ -29,6 +29,9 @@ enum MeAPI{
     
     /// 切换店铺
     case changeDefaultStore(parameters:[String:Any])
+    
+    /// 获取个人配置
+    case getProjectConfig
 
 
 }
@@ -51,6 +54,9 @@ extension MeAPI : TargetType{
         
         case .changeDefaultStore(parameters: let parameters):
             return .requestParameters(parameters: parameters, encoding:  URLEncoding.default) ///JSONEncoding
+        
+        case .getProjectConfig:
+            return .requestParameters(parameters: [:], encoding:  URLEncoding.default) ///JSONEncoding
         }
     }
         
@@ -71,8 +77,10 @@ extension MeAPI : TargetType{
             
         case .changeDefaultStore:
             return "/app/setting/updateShop"
+        case .getProjectConfig:
+            return "/app/global/getSystemParam"
         }
-        
+       
 
     }
     

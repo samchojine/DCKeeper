@@ -26,7 +26,7 @@ class SSYLoginDetectMoyaPlugin: PluginType {
             if let code = Int(dic?["code"] as? String ?? "0") {
                 
                 switch code {
-                case RespNoLoginCheckCode:
+                case RespNoLoginCheckCode,-110:
                     setNeedLogin()
                 default:
                     break

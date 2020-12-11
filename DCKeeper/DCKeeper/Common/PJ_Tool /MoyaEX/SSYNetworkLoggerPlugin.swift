@@ -29,6 +29,20 @@ class SSYNetworkLoggerPlugin: PluginType {
         case .success(let response):
             outputItems(logNetworkRequest(response.request))
             outputItems(logNetworkResponse(response.response, data: response.data, target: target))
+            // 去登录
+            let data = response.data
+            let dic = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? Dictionary<String, Any> ?? [:]
+            if let code = dic?["code"] as?Int {
+                
+                switch code {
+                case RespNoLoginCheckCode,-110:
+                    setNeedLogin()
+                default:
+                    break
+                }
+            }
+            
+            
         case .failure(let error):
             print("errorDescription: \(error.errorDescription ?? "")")
             outputItems(logNetworkRequest(error.response?.request))
@@ -36,6 +50,16 @@ class SSYNetworkLoggerPlugin: PluginType {
         }
         
         print("============================ Network End =============================")
+    }
+    
+    
+    func setNeedLogin(){
+        
+
+        UserManager.shared.deleteUserInfo()
+        let loginVC = LoginController()
+        loginVC.modalPresentationStyle = .fullScreen
+        UIApplication.shared.keyWindow?.rootViewController?.present(loginVC, animated: true, completion: nil)
     }
     
     fileprivate func outputItems(_ items: [String]) {
